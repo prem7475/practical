@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #243247;
+}
+
+.shop {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 18px 32px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 18px;
+  background: #dceaf7;
+  border-bottom: 2px solid #b8d2ea;
+}
+
+.navbar a {
+  color: #214f78;
+  text-decoration: none;
+}
+
+.navbar .brand {
+  color: #173c60;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.student-details {
+  margin-right: auto;
+  color: #365f7d;
+  font-size: 14px;
+}
+
+.page-heading {
+  padding: 22px 0 12px;
+}
+
+.page-heading h1 {
+  margin: 0 0 8px;
+  color: #234f75;
+}
+
+.page-heading p {
+  margin: 0;
+  color: #586b7d;
+}
+
+h2 {
+  color: #315f85;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.product-card {
+  padding: 16px;
+  border: 1px solid #cbd9e6;
+  background: white;
+}
+
+.product-card h3 {
+  margin: 0 0 10px;
+  color: #315f85;
+}
+
+button {
+  padding: 7px 10px;
+  border: 1px solid #7295b4;
+  background: #e6f0f8;
+  color: #214f78;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #d2e5f4;
+}
+
+.cart-section {
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid #cbd9e6;
+  background: #fff;
+}
+
+.cart-section h2 {
+  margin-top: 0;
+}
+
+.empty-cart {
+  color: #586b7d;
+}
+
+.cart-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e1e9f0;
+}
+
+.cart-row > div:first-child {
+  display: grid;
+  gap: 5px;
+}
+
+.cart-row span {
+  color: #586b7d;
+}
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.remove-button {
+  background: #f7e9e7;
+  border-color: #dbb8b2;
+  color: #7d332c;
+}
+
+.cart-total {
+  margin-bottom: 0;
+  color: #234f75;
+  text-align: right;
+}
+
+@media (max-width: 560px) {
+  .navbar {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .cart-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cart-actions {
+    flex-wrap: wrap;
+  }
+}

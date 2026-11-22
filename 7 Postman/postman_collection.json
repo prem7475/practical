@@ -1,0 +1,70 @@
+{
+  "info": {
+    "_postman_id": "d31bce7e-0070-4bd0-8d61-000000000007",
+    "name": "Experiment 7 - Todo API",
+    "description": "Run these requests in order. The create test saves todoId for later requests.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5005/api", "type": "string" },
+    { "key": "todoId", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "1. Create todo",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"title\": \"Learn Postman\"\n}", "options": { "raw": { "language": "json" } } },
+        "url": "{{baseUrl}}/todos"
+      },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('Created with HTTP 201', function () { pm.response.to.have.status(201); });",
+        "const todo = pm.response.json();",
+        "pm.test('Todo has an ID and default state', function () { pm.expect(todo.id).to.be.a('number'); pm.expect(todo.completed).to.eql(false); });",
+        "pm.collectionVariables.set('todoId', String(todo.id));"
+      ] } }]
+    },
+    {
+      "name": "2. List todos",
+      "request": { "method": "GET", "url": "{{baseUrl}}/todos" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('List returns HTTP 200', function () { pm.response.to.have.status(200); });",
+        "pm.test('Created todo is in the list', function () { pm.expect(pm.response.json().some(todo => String(todo.id) === pm.collectionVariables.get('todoId'))).to.eql(true); });"
+      ] } }]
+    },
+    {
+      "name": "3. Read created todo",
+      "request": { "method": "GET", "url": "{{baseUrl}}/todos/{{todoId}}" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('Todo is found', function () { pm.response.to.have.status(200); pm.expect(pm.response.json().id).to.eql(Number(pm.collectionVariables.get('todoId'))); });"
+      ] } }]
+    },
+    {
+      "name": "4. Update created todo",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"title\": \"Postman flow completed\",\n  \"completed\": true\n}", "options": { "raw": { "language": "json" } } },
+        "url": "{{baseUrl}}/todos/{{todoId}}"
+      },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('Todo is updated', function () { pm.response.to.have.status(200); pm.expect(pm.response.json().completed).to.eql(true); });"
+      ] } }]
+    },
+    {
+      "name": "5. Delete created todo",
+      "request": { "method": "DELETE", "url": "{{baseUrl}}/todos/{{todoId}}" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('Todo is deleted', function () { pm.response.to.have.status(204); });"
+      ] } }]
+    },
+    {
+      "name": "6. Confirm deleted todo is missing",
+      "request": { "method": "GET", "url": "{{baseUrl}}/todos/{{todoId}}" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('Deleted todo returns HTTP 404', function () { pm.response.to.have.status(404); });"
+      ] } }]
+    }
+  ]
+}

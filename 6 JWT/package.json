@@ -1,0 +1,13 @@
+{
+  "name": "experiment-6-jwt",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n backend,frontend \"npm --prefix backend run dev\" \"npm --prefix frontend run dev\"",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix frontend run build && concurrently -n backend,frontend \"npm --prefix backend run start\" \"npm --prefix frontend run preview\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

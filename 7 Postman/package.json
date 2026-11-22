@@ -1,0 +1,17 @@
+{
+  "name": "experiment-7-todo-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Beginner-friendly in-memory Todo API and Postman tests",
+  "scripts": {
+    "dev": "node --watch backend/server.js",
+    "start": "node backend/server.js",
+    "test": "node --test backend/server.test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.4"
+  }
+}

@@ -1,0 +1,18 @@
+body { margin: 0; font-family: Arial, sans-serif; background: #f4f7fb; color: #243247; }
+.navbar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 14px 20px; background: #dceaf7; border-bottom: 2px solid #b8d2ea; color: #214f78; }
+.content { max-width: 900px; margin: 0 auto; padding: 22px 18px; }
+h1 { color: #315f85; }
+.task-card { margin-top: 16px; padding: 18px; border: 1px solid #cbd9e6; border-radius: 8px; background: white; }
+.count-badge { display: inline-block; padding: 7px 10px; border-radius: 5px; background: #e6f0f8; color: #214f78; font-weight: bold; }
+form { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 14px 0; }
+input:not([type="checkbox"]) { min-width: 180px; padding: 9px; border: 1px solid #b8c9d8; border-radius: 4px; }
+button { padding: 8px 12px; border: 1px solid #315f85; border-radius: 5px; background: #315f85; color: white; cursor: pointer; }
+button:hover { background: #244b6b; }
+.delete-button { border-color: #9b4545; background: #9b4545; }
+.notice { color: #7d332c; }
+.muted { color: #68798a; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px; border-bottom: 1px solid #dce5ed; text-align: left; }
+th { background: #edf4f9; color: #315f85; }
+.status-label { display: flex; align-items: center; gap: 6px; }

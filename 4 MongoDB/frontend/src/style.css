@@ -1,0 +1,16 @@
+body { margin: 0; font-family: Arial, sans-serif; background: #f4f7fb; color: #243247; }
+.navbar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 14px 20px; background: #dceaf7; border-bottom: 2px solid #b8d2ea; color: #214f78; }
+.content { max-width: 900px; margin: 0 auto; padding: 22px 18px; }
+h1, h2 { color: #315f85; }
+.form-card, .list-card { margin: 16px 0; padding: 18px; border: 1px solid #cbd9e6; border-radius: 8px; background: white; }
+.form-card { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+label { display: grid; gap: 6px; }
+input { min-width: 0; padding: 8px; border: 1px solid #b8c9d8; border-radius: 4px; }
+button { padding: 8px 12px; border: 1px solid #315f85; border-radius: 5px; background: #315f85; color: white; cursor: pointer; }
+button:hover { background: #244b6b; }
+.delete-button { background: #9b4545; border-color: #9b4545; }
+.notice { padding: 10px 12px; border-radius: 5px; background: #f9e9e7; color: #7d332c; }
+.table-scroll { overflow-x: auto; }
+.student-table { width: 100%; border-collapse: collapse; }
+.student-table th, .student-table td { padding: 10px; border-bottom: 1px solid #dce5ed; text-align: left; }
+.student-table th { background: #edf4f9; color: #315f85; }
